@@ -9,10 +9,6 @@ public class ShopHandler extends HandlerBase{
                recycleshop = "1",
                stickshop = "2",
                blackmarket = "3";
-  public ShopHandler(String title)
-  {
-    super(title);
-  }
   public void handle(String data,Player player)
   {
     switch(data)

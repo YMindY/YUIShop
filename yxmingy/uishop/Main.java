@@ -26,7 +26,7 @@ public class Main extends PluginBase{
 		ui.addButton("回收商店");
 		ui.addButton("枯木商店");
 		ui.addButton("黑市");
-		ui.setHandler(new ShopHandler("§r§l商店系统"));
+		ui.setHandler(new ShopHandler());
 		ui.send((Player)sender);
 		return true;
 	}
