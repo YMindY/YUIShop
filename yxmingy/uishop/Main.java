@@ -6,7 +6,6 @@ import cn.nukkit.plugin.PluginBase;
 import java.io.File;
 import yxmingy.yupi.ui.MultiOption;
 
-
 public class Main extends PluginBase{
   private static File datapath;
 	public void onEnable() {

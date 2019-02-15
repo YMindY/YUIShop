@@ -4,10 +4,10 @@ version: "1.0.0"
 load: POSTWORLD
 main: yxmingy.uishop.Main
 commands:
- menu:
+ shop:
   description: "召唤UI商店"
   usage: "/shop"
   permission: yxmingy.command.uishop
 permissions:
  yxmingy.command.uishop: 
- default: true
+  default: true

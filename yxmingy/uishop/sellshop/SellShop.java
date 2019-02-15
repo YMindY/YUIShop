@@ -8,8 +8,9 @@ import yxmingy.yupi.ui.MultiOption;
 import java.util.*;
 
 public class SellShop {
-  private static Config conf = new Config(Main.getDataPath()+"出售商店.yml",Config.YAML);
-  public static void send(Player player)
+  private static Config conf = new Config(Main.getDataPath()+"/出售商店.yml",Config.YAML);
+  @SuppressWarnings("unchecked")
+	public static void send(Player player)
   {
     MultiOption ui = new MultiOption("§r§l出售商店");
     Map<String,String> idata;
@@ -17,8 +18,9 @@ public class SellShop {
     {
       idata = (Map<String,String>)item.getValue();
       String name = (String)idata.get("名称"),
-             price = (String)idata.get("价格");
-      ui.addButton(name+" | "+price);
+             price = (String)String.valueOf(idata.get("价格"));
+      ui.addButton(name+" | "+price+" Ft币");
+      
     }
     ui.send(player);
   }
