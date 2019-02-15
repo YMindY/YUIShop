@@ -1,0 +1,33 @@
+package yxmingy.uishop;
+
+import cn.nukkit.Player;
+import yxmingy.uishop.sellshop.SellShop;
+import yxmingy.yupi.HandlerBase;
+
+public class ShopHandler extends HandlerBase{
+  final String sellshop = "0",
+               recycleshop = "1",
+               stickshop = "2",
+               blackmarket = "3";
+  public ShopHandler(String title)
+  {
+    super(title);
+  }
+  public void handle(String data,Player player)
+  {
+    switch(data)
+    {
+    case sellshop:
+      SellShop.send(player);
+    break;
+    case recycleshop:
+      
+    break;
+    case stickshop:
+      
+    break;
+    case blackmarket:
+      
+    }
+  }
+}
