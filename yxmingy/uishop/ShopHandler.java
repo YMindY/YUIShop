@@ -1,6 +1,7 @@
 package yxmingy.uishop;
 
 import cn.nukkit.Player;
+import yxmingy.uishop.recycleshop.RecycleShop;
 import yxmingy.uishop.sellshop.SellShop;
 import yxmingy.yupi.HandlerBase;
 
@@ -17,7 +18,7 @@ public class ShopHandler extends HandlerBase{
       SellShop.send(player);
     break;
     case recycleshop:
-      
+      RecycleShop.send(player);
     break;
     case stickshop:
       

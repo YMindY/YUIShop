@@ -10,32 +10,38 @@ import yxmingy.yupi.ui.*;
 public class SellShop extends HandlerBase{
   private static Config conf = new Config(Main.getDataPath()+"/出售商店.yml",Config.YAML);
   @SuppressWarnings("unchecked")
-	public static void send(Player player)
+	public static void send(Player player)//给玩家发分类页面
   {
     MultiOption ui = new MultiOption("§r§l出售商店");
-    Map<String,String> idata;
+    Map<String,Object> idata;
+    String name;
     for(Map.Entry<String,Object> item : conf.getAll().entrySet())
     {
-      idata = (Map<String,String>)item.getValue();
-      String name = (String)idata.get("名称"),
-             price = (String)String.valueOf(idata.get("价格"));
-      ui.addButton(name+" | "+price+" Ft币");
+      idata = (Map<String,Object>)item.getValue();
+      name = item.getKey();
+      if(idata.containsKey("图标"))
+      {
+      	ui.addButton(name,true,String.valueOf(idata.get("图标")));
+      }else {
+      	ui.addButton(name);
+      }
     }
     ui.setHandler(new SellShop());
     ui.send(player);
   }
   @SuppressWarnings("unchecked")
-  public void handle(String data,Player player)
+  public void handle(String data,Player player)//处理分类页面
   {
-    if(!conf.exists(data)) {
-      player.sendMessage("配置爆炸!服主背锅!");
-      return;
+  	int i = 0;
+  	Map<String, Object> list;
+    for(Map.Entry<String,Object> group : conf.getAll().entrySet())
+    {
+    	if(String.valueOf(i).contentEquals(data))
+    	{
+    		list = (Map<String, Object>)group.getValue();
+    		SellClassifier.send(player, (ArrayList<Map<String, Object>>)list.get("列表"), group.getKey());
+    	}
+    	i++;
     }
-    Map<String,Object> idata = (Map<String,Object>)conf.get(data);
-    GarishForm ui = new GarishForm((String)idata.get("标题"));
-    ui.addLabel("你要购买的商品为["+String.valueOf(idata.get("名称"))+"] 单价为["+String.valueOf(idata.get("价格"))+"]Ft币");
-    ui.addInput("数量", "输入你要购买的数量");
-    ui.setHandler(new SellCashier(idata));
-    ui.send(player);
   }
 }

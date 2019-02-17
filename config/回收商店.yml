@@ -1,0 +1,25 @@
+材料:
+  图标: textures/items/apple.png
+  列表: 
+  -
+    标题: 出售商店-木头
+    名称: 木头
+    id: 17
+    特殊值: 0
+    价格: 5
+  -
+    标题: 出售商店-泥土
+    名称: 泥土
+    id: 1
+    特殊值: 0
+    价格: 1
+食物:
+  图标: textures/items/apple.png
+  列表: 
+  - 
+    标题: 出售商店-苹果
+    名称: 苹果
+    id: 260
+    特殊值: 0
+    价格: 2
+    图标: textures/items/apple.png
