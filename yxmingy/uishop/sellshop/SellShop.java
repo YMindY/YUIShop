@@ -33,9 +33,8 @@ public class SellShop extends HandlerBase{
     }
     Map<String,Object> idata = (Map<String,Object>)conf.get(data);
     GarishForm ui = new GarishForm((String)idata.get("标题"));
-    ui.addLabel((String)idata.get("名称"));
-    ui.addLabel("价格"+String.valueOf(idata.get("价格")));
-    ui.addSlider("数量",1,64,1);
+    ui.addLabel("你要购买的商品为["+String.valueOf(idata.get("名称"))+"] 单价为["+String.valueOf(idata.get("价格"))+"Ft币");
+    ui.addInput("数量", "输入你要购买的数量");
     ui.send(player);
   }
 }
