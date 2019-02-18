@@ -17,6 +17,7 @@ public class StickCashier extends HandlerBase{
   }
   public void handle(String data,Player player)
   {
+  	if(data.contentEquals("null")) return;
     try{
       int price = Integer.parseInt(String.valueOf(idata.get("游戏币"))),
           stick = Integer.parseInt(String.valueOf(idata.get("枯木数")));

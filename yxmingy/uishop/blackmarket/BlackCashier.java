@@ -4,11 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.item.Item;
 import me.onebone.economyapi.EconomyAPI;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import java.util.*;
-import java.util.regex.Pattern;
 import yxmingy.yupi.*;
 
 public class BlackCashier extends HandlerBase{
@@ -19,17 +15,9 @@ public class BlackCashier extends HandlerBase{
   }
   public void handle(String data,Player player)
   {
-    GsonBuilder builder = new GsonBuilder();
-    Gson gson = builder.create();
-    @SuppressWarnings("serial")
-		Object[] pdata = gson.fromJson(data,new TypeToken<Object[]>() {
-		}.getType());
-    if(!Pattern.matches("^[\\+]?[\\d]+$", String.valueOf(pdata[1]))){
-      player.sendMessage("请输入有效正整数!");
-      return;
-    }
+  	if(data.contentEquals("null")) return;
     try{
-      int count = Integer.parseInt(String.valueOf(pdata[1])),
+      int count = 1,
           id = Integer.parseInt(String.valueOf(idata.get("id"))),
           meta = Integer.parseInt(String.valueOf(idata.get("特殊值")));
       double price = (Double.parseDouble(String.valueOf(idata.get("价格"))))*0.8,

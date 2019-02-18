@@ -33,6 +33,7 @@ public class SellShop extends HandlerBase{
   @SuppressWarnings("unchecked")
   public void handle(String data,Player player)//处理分类页面
   {
+  	if(data.contentEquals("null")) return;
   	int i = 0;
   	Map<String, Object> list;
     for(Map.Entry<String,Object> group : conf.getAll().entrySet())

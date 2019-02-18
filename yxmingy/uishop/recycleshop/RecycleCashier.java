@@ -19,6 +19,7 @@ public class RecycleCashier extends HandlerBase{
   }
   public void handle(String data,Player player)
   {
+  	if(data.contentEquals("null")) return;
     GsonBuilder builder = new GsonBuilder();
     Gson gson = builder.create();
     @SuppressWarnings("serial")

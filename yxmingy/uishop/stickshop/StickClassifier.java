@@ -37,6 +37,7 @@ public class StickClassifier extends HandlerBase {
 
 	@Override
 	public void handle(String data, Player player) {
+		if(data.contentEquals("null")) return;
 		try {
 	    Map<String,Object> idata = (Map<String,Object>)this.idata.get(Integer.parseInt(data));
 	    GarishForm ui = new GarishForm((String)idata.get("标题"));
