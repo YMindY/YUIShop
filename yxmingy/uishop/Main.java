@@ -4,12 +4,15 @@ import cn.nukkit.Player;
 import cn.nukkit.command.*;
 import cn.nukkit.plugin.PluginBase;
 import java.io.File;
+
+import yxmingy.uishop.sellshop.SellShop;
 import yxmingy.yupi.ui.MultiOption;
 
 public class Main extends PluginBase{
   private static File datapath;
 	public void onEnable() {
 	  datapath = getDataFolder();
+	  SellShop.initBlackMarket();
 		getLogger().notice("YUIShop is Enabled! Author: xMing.");
 	}
 	public void onDisable() {

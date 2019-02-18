@@ -1,6 +1,7 @@
 package yxmingy.uishop;
 
 import cn.nukkit.Player;
+import yxmingy.uishop.blackmarket.BlackMarket;
 import yxmingy.uishop.recycleshop.RecycleShop;
 import yxmingy.uishop.sellshop.SellShop;
 import yxmingy.uishop.stickshop.StickShop;
@@ -25,7 +26,7 @@ public class ShopHandler extends HandlerBase{
       StickShop.send(player);
     break;
     case blackmarket:
-      
+      BlackMarket.send(player);
     }
   }
 }

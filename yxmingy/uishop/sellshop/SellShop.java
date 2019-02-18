@@ -4,6 +4,7 @@ import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 import java.util.*;
 import yxmingy.uishop.Main;
+import yxmingy.uishop.blackmarket.BlackMarket;
 import yxmingy.yupi.*;
 import yxmingy.yupi.ui.*;
 
@@ -43,5 +44,9 @@ public class SellShop extends HandlerBase{
     	}
     	i++;
     }
+  }
+  public static void initBlackMarket()
+  {
+  	BlackMarket.init(conf);
   }
 }
