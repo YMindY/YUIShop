@@ -1,0 +1,25 @@
+效果:
+  图标: textures/items/apple.png
+  列表: 
+  -
+    标题: 枯木商店-急速
+    名称: 急速
+    指令: effect @s 1 60 1
+    游戏币: 5
+    枯木数: 0
+  -
+    标题: 枯木商店-迟缓
+    名称: 迟缓
+    指令: effect @s 2 60 1
+    游戏币: 0
+    枯木数: 1
+免费:
+  图标: textures/items/apple.png
+  列表: 
+  - 
+    标题: 枯木商店-自杀
+    名称: 自杀
+    指令: kill @s
+    游戏币: 0
+    枯木数: 0
+    图标: textures/items/apple.png
