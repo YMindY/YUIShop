@@ -9,6 +9,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.*;
 import java.util.regex.Pattern;
+
+import yxmingy.uishop.Main;
 import yxmingy.yupi.*;
 
 public class SellCashier extends HandlerBase{
@@ -42,7 +44,7 @@ public class SellCashier extends HandlerBase{
       }
       eapi.reduceMoney(player, total);
       player.getInventory().addItem(new Item(id, meta, count));
-      player.sendMessage("购买成功，共花费"+String.valueOf(total)+"Ft币，祝您购物愉快！");
+      player.sendMessage("购买成功，共花费"+String.valueOf(total)+Main.getCurrency()+"，祝您购物愉快！");
     }catch(NumberFormatException e)
     {
       player.sendMessage("未知错误!通知服主并让服主通知开发者!");

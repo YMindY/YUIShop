@@ -3,6 +3,7 @@ package yxmingy.uishop.stickshop;
 import java.util.*;
 
 import cn.nukkit.Player;
+import yxmingy.uishop.Main;
 import yxmingy.yupi.HandlerBase;
 import yxmingy.yupi.ui.*;
 
@@ -26,9 +27,9 @@ public class StickClassifier extends HandlerBase {
              stick = String.valueOf(idata.get("枯木数"));
       if(idata.containsKey("图标"))
       {
-      	ui.addButton(name+" | 枯木*"+stick+" + "+price+"Ft币",true,String.valueOf(idata.get("图标")));
+      	ui.addButton(name+" | 枯木*"+stick+" + "+price+Main.getCurrency(),true,String.valueOf(idata.get("图标")));
       }else {
-      	ui.addButton(name+" | 枯木*"+stick+" + "+price+"Ft币");
+      	ui.addButton(name+" | 枯木*"+stick+" + "+price+Main.getCurrency());
       }
     }
     ui.setHandler(new StickClassifier(list));

@@ -3,6 +3,7 @@ package yxmingy.uishop.sellshop;
 import java.util.*;
 
 import cn.nukkit.Player;
+import yxmingy.uishop.Main;
 import yxmingy.yupi.HandlerBase;
 import yxmingy.yupi.ui.*;
 
@@ -25,9 +26,9 @@ public class SellClassifier extends HandlerBase {
              price = String.valueOf(idata.get("价格"));
       if(idata.containsKey("图标"))
       {
-      	ui.addButton(name+" | "+price+" Ft币",true,String.valueOf(idata.get("图标")));
+      	ui.addButton(name+" | "+price+" "+Main.getCurrency(),true,String.valueOf(idata.get("图标")));
       }else {
-      	ui.addButton(name+" | "+price+" Ft币");
+      	ui.addButton(name+" | "+price+" "+Main.getCurrency());
       }
     }
     ui.setHandler(new SellClassifier(list));
@@ -40,7 +41,7 @@ public class SellClassifier extends HandlerBase {
 		try {
 	    Map<String,Object> idata = (Map<String,Object>)this.idata.get(Integer.parseInt(data));
 	    GarishForm ui = new GarishForm((String)idata.get("标题"));
-	    ui.addLabel("你要购买的商品为["+String.valueOf(idata.get("名称"))+"] 单价为"+String.valueOf(idata.get("价格"))+"Ft币");
+	    ui.addLabel("你要购买的商品为["+String.valueOf(idata.get("名称"))+"] 单价为"+String.valueOf(idata.get("价格"))+Main.getCurrency());
 	    ui.addInput("数量", "输入你要购买的数量");
 	    ui.setHandler(new SellCashier(idata));
 	    ui.send(player);

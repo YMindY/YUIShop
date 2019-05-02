@@ -3,6 +3,8 @@ package yxmingy.uishop;
 import cn.nukkit.Player;
 import cn.nukkit.command.*;
 import cn.nukkit.plugin.PluginBase;
+import cn.nukkit.utils.Config;
+
 import java.io.File;
 
 import yxmingy.uishop.sellshop.SellShop;
@@ -10,8 +12,18 @@ import yxmingy.yupi.ui.MultiOption;
 
 public class Main extends PluginBase{
   private static File datapath;
-	public void onEnable() {
+  private static String currency;
+  private static Config conf = new Config(getDataPath()+"/Currency.yml",Config.YAML);
+	public static String getCurrency() {
+		return currency;
+	}
+  public void onEnable() {
 	  datapath = getDataFolder();
+	  if (conf.getAll().isEmpty()) {
+			conf.set("货币名字", "人民币");
+			conf.save();
+	  }
+	  currency = conf.getString("货币名字");
 	  SellShop.initBlackMarket();
 		getLogger().notice("YUIShop is Enabled! Author: xMing.");
 	}
