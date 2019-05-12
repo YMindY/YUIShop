@@ -7,25 +7,30 @@ import cn.nukkit.utils.Config;
 
 import java.io.File;
 
+import yxmingy.uishop.recycleshop.RecycleShop;
 import yxmingy.uishop.sellshop.SellShop;
+import yxmingy.uishop.stickshop.StickShop;
 import yxmingy.yupi.ui.MultiOption;
 
 public class Main extends PluginBase{
   private static File datapath;
   private static String currency;
-  private static Config conf = new Config(getDataPath()+"/Currency.yml",Config.YAML);
+  private static Config conf;
 	public static String getCurrency() {
 		return currency;
 	}
   public void onEnable() {
 	  datapath = getDataFolder();
+	  conf = new Config(getDataFolder()+"/Currency.yml",Config.YAML);
 	  if (conf.getAll().isEmpty()) {
 			conf.set("货币名字", "人民币");
 			conf.save();
 	  }
 	  currency = conf.getString("货币名字");
 	  SellShop.initBlackMarket();
-		getLogger().notice("YUIShop is Enabled! Author: xMing.");
+	  RecycleShop.init();
+	  StickShop.init();
+		getLogger().notice("YUIShop is Enabled! Author: xMing."+currency);
 	}
 	public void onDisable() {
 		getLogger().warning("YUIShop is Turned Off!");

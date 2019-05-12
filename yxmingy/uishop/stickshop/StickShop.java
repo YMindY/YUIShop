@@ -8,7 +8,10 @@ import yxmingy.yupi.*;
 import yxmingy.yupi.ui.*;
 
 public class StickShop extends HandlerBase{
-  private static Config conf = new Config(Main.getDataPath()+"/枯木商店.yml",Config.YAML);
+  private static Config conf;
+  public static void init() {
+		conf = new Config(Main.getDataPath()+"/枯木商店.yml",Config.YAML);
+	}
   @SuppressWarnings("unchecked")
 	public static void send(Player player)//给玩家发分类页面
   {

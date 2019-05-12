@@ -32,11 +32,11 @@ public class RecycleCashier extends HandlerBase{
       return;
     }
     try{
+    	double total,price = Double.parseDouble(String.valueOf(idata.get("价格")));
       int count = Integer.parseInt(String.valueOf(pdata[1])),
-          price = Integer.parseInt(String.valueOf(idata.get("价格"))),
           id = Integer.parseInt(String.valueOf(idata.get("id"))),
-          meta = Integer.parseInt(String.valueOf(idata.get("特殊值"))),
-          total = count*price;
+          meta = Integer.parseInt(String.valueOf(idata.get("特殊值")));
+      total = count*price;
       EconomyAPI eapi = EconomyAPI.getInstance();
       Item item = new Item(id, meta, count);
       if(!player.getInventory().contains(item)) {

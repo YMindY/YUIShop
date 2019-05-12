@@ -9,7 +9,7 @@ import yxmingy.yupi.*;
 import yxmingy.yupi.ui.*;
 
 public class SellShop extends HandlerBase{
-  private static Config conf = new Config(Main.getDataPath()+"/出售商店.yml",Config.YAML);
+  private static Config conf;
   @SuppressWarnings("unchecked")
 	public static void send(Player player)//给玩家发分类页面
   {
@@ -48,6 +48,7 @@ public class SellShop extends HandlerBase{
   }
   public static void initBlackMarket()
   {
+  	conf = new Config(Main.getDataPath()+"/出售商店.yml",Config.YAML);
   	BlackMarket.init(conf);
   }
 }
