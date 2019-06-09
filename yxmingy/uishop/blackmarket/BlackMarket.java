@@ -3,6 +3,8 @@ package yxmingy.uishop.blackmarket;
 import cn.nukkit.Player;
 import cn.nukkit.utils.Config;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 import yxmingy.uishop.Main;
@@ -39,6 +41,13 @@ public class BlackMarket extends HandlerBase{
     	}
 		}
   }
+  public static double round(double num)
+  {
+  	BigDecimal bigDecimal = new BigDecimal(Double.toString(num));
+  	num = bigDecimal.setScale(2,RoundingMode.HALF_UP).doubleValue();
+  	return num;
+  	
+  }
 	public static void send(Player player)
   {
     MultiOption ui = new MultiOption("§r§l黑市");
@@ -48,9 +57,9 @@ public class BlackMarket extends HandlerBase{
              price = (String)String.valueOf(idata.get("价格"));
       if(idata.containsKey("图标"))
       {
-      	ui.addButton(name+" | 原价:"+price+Main.getCurrency()+" | 现价:"+(Double.parseDouble(price)*0.8)+Main.getCurrency(),true,String.valueOf(idata.get("图标")));
+      	ui.addButton(name+" | 原价:"+price+Main.getCurrency()+" | 现价:"+(round(Double.parseDouble(price)*0.8))+Main.getCurrency(),true,String.valueOf(idata.get("图标")));
       }else {
-      	ui.addButton(name+" | 原价:"+price+Main.getCurrency()+" | 现价:"+(Double.parseDouble(price)*0.8)+Main.getCurrency());
+      	ui.addButton(name+" | 原价:"+price+Main.getCurrency()+" | 现价:"+(round(Double.parseDouble(price)*0.8))+Main.getCurrency());
       }
     }
     ui.setHandler(new BlackMarket());
@@ -61,7 +70,7 @@ public class BlackMarket extends HandlerBase{
   	if(data.contentEquals("null")) return;
   	try {
 	    Map<String,Object> idata = (Map<String,Object>)conf.get(Integer.parseInt(data));
-	    double price = (Double.parseDouble(String.valueOf(idata.get("价格"))))*0.8;
+	    double price = round((Double.parseDouble(String.valueOf(idata.get("价格"))))*0.8);
 	    GarishForm ui = new GarishForm((String)idata.get("标题"));
 	    ui.addLabel("你要购买的商品为["+String.valueOf(idata.get("名称"))+"] 八折后价格为"+String.valueOf(price)+Main.getCurrency());
 	    ui.addInput("数量", "输入你要购买的数量");

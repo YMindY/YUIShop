@@ -36,7 +36,7 @@ public class BlackCashier extends HandlerBase{
       int count = Integer.parseInt(String.valueOf(pdata[1])),
           id = Integer.parseInt(String.valueOf(idata.get("id"))),
           meta = Integer.parseInt(String.valueOf(idata.get("特殊值")));
-      double price = (Double.parseDouble(String.valueOf(idata.get("价格"))))*0.8,
+      double price = BlackMarket.round((Double.parseDouble(String.valueOf(idata.get("价格"))))*0.8),
              total = count*price;
       EconomyAPI eapi = EconomyAPI.getInstance();
       if(eapi.myMoney(player) < total) {
